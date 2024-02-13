@@ -17,7 +17,7 @@
         if test -f ./setup_project.tcl; then
           ${quartus}/bin/quartus_sh -t ./setup_project.tcl
         else
-          echo "\nCould not find 'setup_project.tcl'. Are you in the correct directory?"
+          echo "Could not find 'setup_project.tcl'. Are you in the correct directory?"
           exit 1
         fi
       '';
@@ -25,7 +25,7 @@
         if test -f ./project.qpf && test -f ./project.qsf; then
           ${quartus}/bin/quartus_map project
         else
-          echo "\nMust generate the project before running this."
+          echo "Must generate the project before running this."
           exit 1
         fi
       '';
@@ -33,7 +33,7 @@
         if test -f ./project.map.rpt; then
           ${quartus}/bin/quartus_fit project
         else
-          echo "\nMust run map before fitting."
+          echo "Must run map before fitting."
           exit 1
         fi
       '';
@@ -41,7 +41,7 @@
         if test -f ./project.map.rpt; then
           ${quartus}/bin/quartus_asm project
         else
-          echo "\nMust fit before assembling."
+          echo "Must fit before assembling."
           exit 1
         fi
       '';
@@ -49,17 +49,17 @@
         if test -f ./project.sof; then
           ${quartus}/bin/quartus_pgm -m JTAG -o "s;SOCVHPS@1" -o "p;project.sof;5CSEMA5F31@2"
         else
-          echo "\nMust assemble before programming."
+          echo "Must assemble before programming."
           exit 1
         fi
       '';
       de1-make = pkgs.writeShellScriptBin "de1make" ''
         echo "Compiling project..."
         if ${de1-gen}/bin/de1gen && ${de1-map}/bin/de1map && ${de1-fit}/bin/de1fit && ${de1-asm}/bin/de1asm; then
-          echo "\nCompiled project successfully, flash it with 'de1pgm'."
+          echo "Compiled project successfully, flash it with 'de1pgm'."
           exit 0
         else
-          echo "\nCompile failed."
+          echo "Compile failed."
           exit 1
         fi
       '';
