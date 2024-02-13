@@ -1,9 +1,11 @@
-project_new funstuff -overwrite
+project_new project -overwrite
+
 # Assign family, device, and top-level file
-set_global_assignment -name FAMILY Cyclone
-set_global_assignment -name DEVICE 5CSEMA5F31C6N
-set_global_assignment -name VHD_FILE switchesleds.vhd
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name VHDL_FILE switchesleds.vhd
 set_global_assignment -name TOP_LEVEL_ENTITY switchesleds
+
 # Assign pins
 set_location_assignment -to switches[9] PIN_AE12
 set_location_assignment -to switches[8] PIN_AD10
@@ -26,5 +28,6 @@ set_location_assignment -to leds[3] PIN_V18
 set_location_assignment -to leds[2] PIN_V17
 set_location_assignment -to leds[1] PIN_W16
 set_location_assignment -to leds[0] PIN_V16
-#
+
+
 project_close

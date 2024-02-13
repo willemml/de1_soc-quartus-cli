@@ -1,0 +1,13 @@
+.DS_Store
+/db
+/incremental_db
+*.txt
+*.rpt
+*.summary
+*.jdi
+*.pin
+*.qsf
+*.sld
+*.qpf
+*.qsf
+*.sof
