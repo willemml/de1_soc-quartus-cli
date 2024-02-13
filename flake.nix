@@ -9,7 +9,7 @@
     self,
     nixpkgs,
   }: let
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
     quartus = pkgs.quartus-prime-lite.override (old: {supportedDevices = ["Cyclone V"];});
   in rec {
     packages.x86_64-linux = rec {
