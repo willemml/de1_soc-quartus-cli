@@ -1,5 +1,5 @@
 # generate project files
-quartus_sh -t project.tcl
+quartus_sh -t setup_project.tcl
 
 # compile project
 quartus_map project
